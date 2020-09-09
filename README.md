@@ -43,5 +43,6 @@ In addition, with the User Functionality (mentioned above) in place, it would be
 ### Other improvements
 At a later stage this solution would of course be deployed. I had this in mind when defining ports, hosts etc, but I didn't have time to actually deploy it. For this kind of simple, small scale application, I would use Heroku to get it up and spinning in a heartbeat.
 Furthermore, you should add tests and a CI/CD pipeline, which was not prioritized. For these matters I would use Jest and Circle CI, which has some really smooth integrations with Github and Heroku.
+When extending the app a bit more, it would be valuable to add some kind of type checks. This could be done by using PropTypes, but personally I prefer to secure the app a bit more by using TypeScript.
 
 
