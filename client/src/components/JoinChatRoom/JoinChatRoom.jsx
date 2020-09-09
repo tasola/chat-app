@@ -21,7 +21,7 @@ const JoinChatRoom = () => {
         onClick={(event) =>
           !userName || !roomName ? event.preventDefault() : null
         }
-        to={`/chat?room=${roomName}&user=${userName}`}
+        to={`/chat-room?room=${roomName}&user=${userName}`}
       >
         <button>Join room</button>
       </Link>
