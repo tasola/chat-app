@@ -3,6 +3,8 @@ import io from 'socket.io-client'
 import queryString from 'query-string'
 import { apiUrl } from '../../utils/constants'
 import socketEvents from '../../utils/socketEvents'
+import MessageWrapper from '../MessageWrapper/MessageWrapper'
+import MessageInput from '../MessageInput/MessageInput'
 
 let socket
 
@@ -46,18 +48,12 @@ const ChatRoom = ({ location }) => {
   return (
     <div>
       <h3>{room.toUpperCase()}</h3>
-      <div>
-        {messages.map((message, index) => (
-          <div key={index}>{message}</div>
-        ))}
-      </div>
-      <input
-        value={message}
-        onChange={(event) => setMessage(event.target.value)}
-        onKeyPress={(event) =>
-          event.key === 'Enter' ? emitMessage(event) : null
-        }
-      ></input>
+      <MessageWrapper messages={messages} />
+      <MessageInput
+        message={message}
+        setMessage={setMessage}
+        emitMessage={emitMessage}
+      />
     </div>
   )
 }
