@@ -22,7 +22,6 @@ const ChatRoom = () => {
 
   const emitMessage = (event) => {
     event.preventDefault()
-    console.log('emitting message')
     if (message) {
       socket.emit(socketEvents.MESSAGE, message, () => setMessage(''))
     }
