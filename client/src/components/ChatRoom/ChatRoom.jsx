@@ -9,7 +9,7 @@ import MessageInput from '../MessageInput/MessageInput'
 let socket
 
 const ChatRoom = ({ location }) => {
-  const [message, setMessage] = useState('')
+  const [messageText, setMessageText] = useState('')
   const [messages, setMessages] = useState([])
   const [room, setRoom] = useState('')
   const [user, setUser] = useState('')
@@ -40,8 +40,10 @@ const ChatRoom = ({ location }) => {
 
   const emitMessage = (event) => {
     event.preventDefault()
-    if (message) {
-      socket.emit(socketEvents.MESSAGE, message, () => setMessage(''))
+    if (messageText) {
+      socket.emit(socketEvents.MESSAGE, { text: messageText, user: user }, () =>
+        setMessageText('')
+      )
     }
   }
 
@@ -50,8 +52,8 @@ const ChatRoom = ({ location }) => {
       <h3>{room.toUpperCase()}</h3>
       <MessageWrapper messages={messages} />
       <MessageInput
-        message={message}
-        setMessage={setMessage}
+        message={messageText}
+        setMessage={setMessageText}
         emitMessage={emitMessage}
       />
     </div>
