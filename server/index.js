@@ -14,10 +14,10 @@ const io = require('socket.io')(server, {
 })
 
 io.on('connection', (socket) => {
-  socket.broadcast.emit(
-    socketEvents.MESSAGE,
-    'Another user has joined the chat!'
-  )
+  socket.broadcast.emit(socketEvents.MESSAGE, {
+    text: 'Another user has joined the chat!',
+    user: 'Announcement',
+  })
 
   socket.on(socketEvents.MESSAGE, (message, callback) => {
     io.emit(socketEvents.MESSAGE, message)
@@ -25,7 +25,10 @@ io.on('connection', (socket) => {
   })
 
   socket.on(socketEvents.DISCONNECT, () => {
-    io.emit(socketEvents.MESSAGE, 'A user has left the chat')
+    io.emit(socketEvents.MESSAGE, {
+      text: 'A user has left the chat',
+      user: 'Announcement',
+    })
   })
 })
 
