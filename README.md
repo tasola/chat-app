@@ -34,7 +34,7 @@ Even though I felt it was a bit of a heavy task to implement a chat application 
 The most obvious flaw when testing the app out is that it doesn't have any styling whatsoever. I do enjoy design and styling quite a lot, but I love actual code "logic" more, so I went ahead and tried to maximize the functionality instead. In my everyday development work I usually implement the logic first and then apply styles. I would use styledComponents for this, as I've liked the CSS-in-JS approach through using Material-UI, but styledComponents seems to be even more useful from what I've read.
 
 ### User functionality
-As you can see in e.g ChatRoom.jsx, row 27, I started using user and room in the socket communication. As mentioned above, I didn't have the time to implement this fully though, so I rolled back. I would like to add functionality so that you not only send a message to the server, but an object with a sender and a message. This way you could add support for putting your own messages on one side, and the other's messages on the other. Furthermore, you could announce specifically what user has entered/left, and tell the other users apart by rendering their user name next to their message.
+I only had time to add some really basic user functionality. In addition to this, it would be easy to have your own messages on one side, and the others' on the other side, and to list what users are currently online in the room.
 
 ### Room functionality
 Socket.io supports room functionality, so that you can emit messages to certain rooms (https://socket.io/docs/rooms/). I started off with this on the same time as users (described above), and it seemed very straight forward.
