@@ -1,40 +1,11 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import { primaryColor, secondaryColor } from '../../utils/palette'
-
-const JoinChatRoomBox = styled.div`
-  display: flex;
-  flex-direction: column;
-  background-color: white;
-  width: 35vw;
-  min-width: 400px;
-  margin: 0 auto;
-  padding: 1.5em 1em;
-  border-radius: 5px;
-  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
-`
-
-const Header = styled.h3`
-  text-align: center;
-  margin: 0;
-`
+import { primaryColor, secondaryColor } from '../../styles/palette'
+import { Box, Header, Input } from '../../styles/shared-styles/shared-styles'
 
 const ComponentWrapper = styled.div`
   padding: 1em 4em;
-`
-
-const Input = styled.input`
-  width: 100%;
-  height: 2.5em;
-  margin: 0.5em 0;
-  border: none;
-  border-bottom: 2px solid ${primaryColor};
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  &:focus {
-    outline-width: 0;
-  }
 `
 
 const JoinLink = styled(Link)`
@@ -57,7 +28,7 @@ const JoinChatRoom = () => {
   const [userName, setUserName] = useState('')
 
   return (
-    <JoinChatRoomBox>
+    <Box>
       <Header>join a chat room</Header>
       <ComponentWrapper>
         <Input
@@ -79,7 +50,7 @@ const JoinChatRoom = () => {
       >
         join room
       </JoinLink>
-    </JoinChatRoomBox>
+    </Box>
   )
 }
 
