@@ -5,6 +5,13 @@ import { apiUrl } from '../../utils/constants'
 import socketEvents from '../../utils/socketEvents'
 import MessageWrapper from '../MessageWrapper/MessageWrapper'
 import MessageInput from '../MessageInput/MessageInput'
+import styled from 'styled-components'
+import { Box, Header } from '../../styles/shared-styles/shared-styles'
+
+const ChatRoomBox = styled(Box)`
+  padding-left: 3em;
+  padding-right: 3em;
+`
 
 let socket
 
@@ -47,16 +54,18 @@ const ChatRoom = ({ location }) => {
     }
   }
 
+  console.log(messages)
+
   return (
-    <div>
-      <h3>{room.toUpperCase()}</h3>
-      <MessageWrapper messages={messages} />
+    <ChatRoomBox>
+      <Header>{room.toLowerCase()}</Header>
+      <MessageWrapper messages={messages} user={user} />
       <MessageInput
         message={messageText}
         setMessage={setMessageText}
         emitMessage={emitMessage}
       />
-    </div>
+    </ChatRoomBox>
   )
 }
 
