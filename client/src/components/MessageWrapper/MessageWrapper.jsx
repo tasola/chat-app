@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import Message from '../Message/Message'
 import styled from 'styled-components'
 
@@ -15,12 +15,21 @@ const StyledMessageWrapper = styled.div`
   }
 `
 
-const MessageWrapper = ({ messages, user }) => (
-  <StyledMessageWrapper>
-    {messages.map((message, index) => (
-      <Message key={index} message={message} currentUser={user} />
-    ))}
-  </StyledMessageWrapper>
-)
+const MessageWrapper = ({ messages, user }) => {
+  const end = useRef(null)
+
+  useEffect(() => {
+    end.current.scrollIntoView({ behaviour: 'smooth' })
+  }, [messages])
+
+  return (
+    <StyledMessageWrapper>
+      {messages.map((message, index) => (
+        <Message key={index} message={message} currentUser={user} />
+      ))}
+      <div ref={end} />
+    </StyledMessageWrapper>
+  )
+}
 
 export default MessageWrapper
