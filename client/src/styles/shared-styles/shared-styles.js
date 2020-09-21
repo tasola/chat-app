@@ -11,6 +11,9 @@ export const Box = styled.div`
   padding: 1.5em 1em;
   border-radius: 5px;
   box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+  @media (max-width: 550px) {
+    min-width: 300px;
+  }
 `
 
 export const Header = styled.h3`
